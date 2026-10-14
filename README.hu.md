@@ -23,6 +23,10 @@ A HACS automatikusan dashboard resource-ot is felvehet. A `frontend.extra_module
 
 ## Kézi telepítés
 
+## Automatikus frissítésjelzés
+
+Minden `main` ágra történő push után a GitHub Actions ellenőrzi a buildet, és verziózott GitHub release-t készít a JS és CSS fájllal. A HACS az időszakos ellenőrzése során észleli az új kiadást, és elérhető frissítésként jelzi. Ez HACS-frissítésjelzés; telefonos push értesítéshez a HACS update entity-re épülő Home Assistant automatizáció kell. Kézi információfrissítéssel hamarabb is ellenőrizhető az új kiadás.
+
 A két fájlt másold ide a HA gépén:
 
 ```text

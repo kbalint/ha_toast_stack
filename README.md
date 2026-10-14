@@ -47,6 +47,8 @@ Restart Home Assistant and fully reload your client.
 
 ## Updates and customization
 
+Every push to `main` automatically builds, checks and publishes a versioned GitHub release with the JavaScript and CSS assets. HACS discovers new releases during its periodic update checks and shows an available update. This is an update indicator; push notifications to your phone require a Home Assistant automation based on the HACS update entity. You can also refresh repository information manually to discover a release sooner.
+
 Download updates through HACS, then increase the `?v=5` value in the module URL and reload your client. Restart Home Assistant after changing YAML. The loader passes the module query string to the CSS URL as well to invalidate both caches.
 
 Edit the CSS beside the installed module to customize the appearance. HACS updates overwrite installed files, so back up your customizations before updating.
@@ -63,7 +65,7 @@ Remove the module entry from `frontend.extra_module_url`, uninstall the reposito
 
 ## Development
 
-Edit the root JS/CSS sources, run `node build.cjs`, and commit both source files and `dist/`. HACS downloads the contents of `dist/`; manual installation uses the root files.
+Edit the root JS/CSS sources, run `node build.cjs`, and commit both source files and `dist/`. Pushing to `main` triggers `.github/workflows/release.yml`, which validates the distribution and publishes both assets. HACS can download the published release or the contents of `dist/`; manual installation uses the root files.
 
 ## References
 

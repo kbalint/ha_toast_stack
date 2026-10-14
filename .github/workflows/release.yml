@@ -1,0 +1,42 @@
+name: Publish HACS release
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: hacs-release
+  cancel-in-progress: false
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Build and check distribution
+        run: |
+          node build.cjs
+          node --input-type=module --check < dist/ha_toast_stack.js
+          git diff --exit-code -- dist/
+      - name: Publish versioned release with both frontend files
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RELEASE_VERSION: v0.1.${{ github.run_number }}
+          RELEASE_COMMIT: ${{ github.sha }}
+        run: |
+          if gh release view "$RELEASE_VERSION" >/dev/null 2>&1; then
+            echo "Release already published."
+          else
+            gh release create "$RELEASE_VERSION" \
+              dist/ha_toast_stack.js dist/ha-toast-stack.css \
+              --target "$RELEASE_COMMIT" \
+              --title "HA Toast Stack $RELEASE_VERSION" \
+              --generate-notes \
+              --latest
