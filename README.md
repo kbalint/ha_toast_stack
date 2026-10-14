@@ -2,6 +2,14 @@
 
 [Magyar leírás](README.hu.md)
 
+## Why this exists
+
+This project started when repeated connection errors filled the entire Home Assistant screen with large toast notifications, covering the dashboard. HA Toast Stack keeps them in a compact, scrollable stack with individual close buttons and a **Close all** badge.
+
+| Before | After |
+| --- | --- |
+| <img src="docs/images/before.png" alt="Before: repeated error notifications covering the Home Assistant screen" width="300"> | <img src="docs/images/after.png" alt="After: compact bordered notifications with centered close buttons and a Close all badge" width="420"> |
+
 Compact Home Assistant toast notifications with a circular close button and a **Close all** badge when two or more notifications are displayed.
 
 - Bottom-right stack, up to 420 px wide, with margins on mobile.

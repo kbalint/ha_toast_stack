@@ -40,3 +40,4 @@ jobs:
               --title "HA Toast Stack $RELEASE_VERSION" \
               --generate-notes \
               --latest
+          fi

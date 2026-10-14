@@ -2,6 +2,14 @@
 
 [English documentation](README.md)
 
+## Miért készült?
+
+Az ismétlődő kapcsolati hibák nagy értesítésekkel töltötték meg a Home Assistant teljes képernyőjét, eltakarva a dashboardot. Ezért készült a HA Toast Stack: kompakt, görgethető listába rendezi őket, egyenkénti bezárógombbal és **Close all** badge-dzsel.
+
+| Előtte | Utána |
+| --- | --- |
+| <img src="docs/images/before.png" alt="Előtte: ismétlődő hibaértesítések takarják el a Home Assistant képernyőjét" width="300"> | <img src="docs/images/after.png" alt="Utána: kompakt, keretezett értesítések középre igazított X-szel és Close all badge-dzsel" width="420"> |
+
 ## Telepítés HACS-ből
 
 1. Nyisd meg: **HACS → ⋮ → Custom repositories / Egyéni tárolók**.
