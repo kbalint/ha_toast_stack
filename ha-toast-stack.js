@@ -1,5 +1,7 @@
 // Load globally through frontend.extra_module_url. CSS lives beside this file.
 const cssURL = new URL('./ha-toast-stack.css', import.meta.url);
+// Updating the configured module version also invalidates the CSS cache.
+cssURL.search = new URL(import.meta.url).search;
 const response = await fetch(cssURL);
 if (!response.ok) throw new Error(`Toast override CSS: HTTP ${response.status}`);
 const css = await response.text();

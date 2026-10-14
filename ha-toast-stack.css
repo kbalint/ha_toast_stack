@@ -14,8 +14,19 @@
   gap: 8px !important;
   padding: 4px !important;
   box-sizing: border-box;
-  scrollbar-width: thin;
+  /* Keep touch/wheel scrolling without a tiny bar during close animations. */
+  scrollbar-width: none;
   z-index: 10000;
+}
+
+/* HA's display:flex must not override the browser's closed-popover state. */
+.stack[popover]:not(:popover-open),
+.stack:empty {
+  display: none !important;
+}
+
+.stack::-webkit-scrollbar {
+  display: none;
 }
 
 :host(ha-toast) {
