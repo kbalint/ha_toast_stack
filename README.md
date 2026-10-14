@@ -22,7 +22,7 @@ Compact Home Assistant toast notifications with a circular close button and a **
 ```yaml
 frontend:
   extra_module_url:
-    - /local/community/ha_toast_stack/ha_toast_stack.js?v=4
+    - /local/community/ha_toast_stack/ha_toast_stack.js?v=5
 ```
 
 5. Restart Home Assistant, then fully reload your browser or Companion app.
@@ -40,14 +40,14 @@ Copy the root `ha-toast-stack.js` and `ha-toast-stack.css` files into `/config/w
 ```yaml
 frontend:
   extra_module_url:
-    - /local/ha-toast-stack/ha-toast-stack.js?v=4
+    - /local/ha-toast-stack/ha-toast-stack.js?v=5
 ```
 
 Restart Home Assistant and fully reload your client.
 
 ## Updates and customization
 
-Download updates through HACS, then increase the `?v=4` value in the module URL and reload your client. Restart Home Assistant after changing YAML. The loader passes the module query string to the CSS URL as well to invalidate both caches.
+Download updates through HACS, then increase the `?v=5` value in the module URL and reload your client. Restart Home Assistant after changing YAML. The loader passes the module query string to the CSS URL as well to invalidate both caches.
 
 Edit the CSS beside the installed module to customize the appearance. HACS updates overwrite installed files, so back up your customizations before updating.
 
