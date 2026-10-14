@@ -29,6 +29,39 @@
   display: none;
 }
 
+.ha-toast-close-all {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  align-self: flex-end;
+  flex-shrink: 0;
+  min-height: 36px;
+  padding: 6px 14px;
+  border: 1px solid var(--divider-color, #8885);
+  border-radius: 999px;
+  background: var(--card-background-color, #222);
+  color: var(--primary-text-color, #fff);
+  font: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 2px 8px #0003;
+}
+
+.ha-toast-close-all:hover {
+  border-color: var(--primary-color, #03a9f4);
+}
+
+.ha-toast-close-all:focus-visible {
+  outline: 2px solid var(--primary-color, #03a9f4);
+  outline-offset: 2px;
+}
+
+.ha-toast-close-all:disabled {
+  opacity: 0.6;
+  cursor: wait;
+}
+
 :host(ha-toast) {
   display: block;
   position: relative;
