@@ -1,0 +1,104 @@
+/* Injected into notification-manager and ha-toast shadow roots by the loader. */
+.stack {
+  inset: auto max(12px, env(safe-area-inset-right, 0px))
+    calc(max(12px, env(safe-area-inset-bottom, 0px)) + var(--notification-stack-bottom-offset, 0px))
+    auto !important;
+  transform: none !important;
+  width: min(420px, calc(100vw - 24px - env(safe-area-inset-left, 0px) - env(safe-area-inset-right, 0px))) !important;
+  max-width: none !important;
+  max-height: 45vh;
+  max-height: 45dvh;
+  overflow: auto !important;
+  overscroll-behavior: contain;
+  align-items: stretch !important;
+  gap: 8px !important;
+  padding: 4px !important;
+  box-sizing: border-box;
+  /* Keep touch/wheel scrolling without a tiny bar during close animations. */
+  scrollbar-width: none;
+  z-index: 10000;
+}
+
+/* HA's display:flex must not override the browser's closed-popover state. */
+.stack[popover]:not(:popover-open),
+.stack:empty {
+  display: none !important;
+}
+
+.stack::-webkit-scrollbar {
+  display: none;
+}
+
+.ha-toast-close-all {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  align-self: flex-end;
+  flex-shrink: 0;
+  min-height: 36px;
+  padding: 6px 14px;
+  border: 1px solid var(--divider-color, #8885);
+  border-radius: 999px;
+  background: var(--card-background-color, #222);
+  color: var(--primary-text-color, #fff);
+  font: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 2px 8px #0003;
+}
+
+.ha-toast-close-all:hover {
+  border-color: var(--primary-color, #03a9f4);
+}
+
+.ha-toast-close-all:focus-visible {
+  outline: 2px solid var(--primary-color, #03a9f4);
+  outline-offset: 2px;
+}
+
+.ha-toast-close-all:disabled {
+  opacity: 0.6;
+  cursor: wait;
+}
+
+:host(ha-toast) {
+  display: block;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.toast.stacked {
+  width: 100% !important;
+  min-width: 0 !important;
+  max-width: 100% !important;
+  border-radius: 14px !important;
+  padding: 16px 54px 16px 16px !important;
+  box-shadow: 0 3px 12px #0004;
+  flex-wrap: wrap;
+}
+
+.message {
+  overflow-wrap: anywhere;
+  font-size: 14px;
+  line-height: 1.45;
+}
+
+/* The existing HA button retains its accessible label and native dismiss handler. */
+::slotted(ha-icon-button[slot="dismiss"]) {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  width: 44px;
+  height: 44px;
+  --mdc-icon-button-size: 44px;
+  --mdc-icon-size: 20px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #8883 0 16px, transparent 17px);
+  color: inherit;
+}
+
+::slotted(ha-icon-button[slot="dismiss"]:hover),
+::slotted(ha-icon-button[slot="dismiss"]:focus-visible) {
+  background: radial-gradient(circle, #8886 0 16px, transparent 17px);
+}
