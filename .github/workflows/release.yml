@@ -35,7 +35,7 @@ jobs:
             echo "Release already published."
           else
             gh release create "$RELEASE_VERSION" \
-              dist/ha_toast_stack.js dist/ha-toast-stack.css \
+              dist/ha_toast_stack.js dist/ha-toast-stack.css dist/icon.png dist/icon@2x.png \
               --target "$RELEASE_COMMIT" \
               --title "HA Toast Stack $RELEASE_VERSION" \
               --generate-notes \

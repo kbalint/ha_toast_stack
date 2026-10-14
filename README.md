@@ -1,5 +1,9 @@
 # HA Toast Stack
 
+<img src="icon.png" alt="HA Toast Stack icon" width="96">
+
+The release includes the matching cyan notification-stack icon in 256 px and 512 px sizes. HACS downloads the icon assets alongside the module. HACS 2.0.5 does not automatically display arbitrary repository icons for Dashboard plugins; the icon is shown here in the documentation and available as an asset, not a new integration icon.
+
 [Magyar leírás](README.hu.md)
 
 ## Why this exists

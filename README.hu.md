@@ -1,5 +1,9 @@
 # Kompakt Home Assistant toastok
 
+<img src="icon.png" alt="HA Toast Stack ikon" width="96">
+
+A kiadás tartalmazza a DB browserhez illő, cián értesítés-stack ikont 256 és 512 pixeles méretben. A HACS az ikonfájlokat is letölti a modul mellé. A HACS 2.0.5 Dashboard bővítményeknél nem jelenít meg automatikusan tetszőleges repóikont; itt a dokumentációban látható és fájlként elérhető, nem külön integrációs ikonként.
+
 [English documentation](README.md)
 
 ## Miért készült?

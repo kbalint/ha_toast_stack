@@ -6,6 +6,8 @@ fs.mkdirSync(output, { recursive: true });
 for (const [source, target] of [
   ['ha-toast-stack.js', 'ha_toast_stack.js'],
   ['ha-toast-stack.css', 'ha-toast-stack.css'],
+  ['icon.png', 'icon.png'],
+  ['icon@2x.png', 'icon@2x.png'],
 ]) {
   fs.copyFileSync(path.join(__dirname, source), path.join(output, target));
 }
